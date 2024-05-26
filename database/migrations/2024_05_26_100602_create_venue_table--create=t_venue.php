@@ -11,7 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('t_venue', function (Blueprint $table) {
+            $table->id();
+            $table->string('venue_id')->nullable();
+            $table->string('venueName')->nullable();
+            $table->string('venueStreetAddress')->nullable();
+            $table->string('venueTown')->nullable();
+            $table->integer('venuePostcode')->nullable();
+            $table->string('venueCity')->nullable();
+            $table->string('venueInfo')->nullable();
+            $table->float('venuePrice')->nullable();
+            $table->string('venueSize')->nullable();
+            $table->string('venueFeatures')->nullable();
+            $table->time('venueOperatingHours')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('t_venue');
     }
 };

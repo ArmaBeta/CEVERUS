@@ -11,7 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('t_location', function (Blueprint $table) {
+            $table->id();
+            $table->string('location_id')->nullable();
+            $table->string('locationName')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('t_location');
     }
 };

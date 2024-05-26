@@ -11,7 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('t_booking', function (Blueprint $table) {
+            $table->id();
+            $table->string('booking_id')->nullable();
+            $table->date('bookingDate')->nullable();
+            $table->integer('bookingNoParticipants')->nullable();
+            $table->integer('sort')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('t_booking');
     }
 };
